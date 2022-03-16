@@ -1,0 +1,42 @@
+<!DOCTYPE html>  
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+    </head>
+<body>
+   <div class="header">
+      <h4>Employee Details</h4>
+      <div class="header-right">
+         <a href="{{ url_for('list_employees') }}">Employee Management System</a>
+      </div>
+
+   </div> 
+<br><br>
+<table border="2" padding = "5">  
+    <thead>  
+       <tr> 
+          <th>ID</th> 
+          <th>Name</th>  
+          <th>Salary</th>  
+          <th>Age</th>  
+          <th>Pin</th>  
+       </tr>  
+    </thead>  
+
+    <tbody>  
+     
+          <tr>
+             <td>{{ employee.id }}</td>  
+             <td>{{ employee.name }}</td>  
+             <td>{{ employee.salary }}</td>  
+             <td>{{ employee.age }}</td>  
+             <td>{{ employee.pin }}</td>  
+          </tr>  
+
+    </tbody>  
+ </table>  
+<br><br>
+
+</body>
+</html>

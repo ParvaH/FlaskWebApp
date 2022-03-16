@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+   </head>  
+   <body> 
+      <div class="header">
+         <h4>Update Employee Details by ID</h4>
+         <div class="header-right">
+            <a href="{{ url_for('list_employees') }}">Employee Management System</a>
+         </div>
+      </div>  
+
+        
+      {%- for category, message in get_flashed_messages(with_categories = true) %}  
+         <div class = "alert alert-danger">  
+            {{ message }}  
+         </div>  
+      {%- endfor %}  
+      <br><br>
+      <div class = "container">
+      <form action = "{{ request.path }}" method = "post">  
+        <label for = "id">ID</label><br>  
+        <input type = "integer" name = "id" placeholder = "id" /><br> 
+        <label for = "name">Name</label><br>  
+        <input type = "text" name = "name" placeholder = "Name" /><br>  
+       
+        <label for = "salary">Salary</label><br>  
+        <input type = "text" name = "salary" placeholder = "salary" /><br>  
+               
+        <label for = "age">Age</label><br>  
+        <input type = "text" name = "age" placeholder = "age"><br>  
+               
+        <label for = "PIN">Pin</label><br>  
+        <input type = "text" name = "pin" placeholder = "pin" /><br>  
+               
+        <input type = "submit" value = "Update Employee Details" />
+
+
+      </form>
+      </div>
+      <br><br>
+   </body>  
+</html>

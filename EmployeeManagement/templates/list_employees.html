@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html lang = "en">  
+   <head></head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+      <title>Home</title></head>  
+   <body>  
+      <div class="header">
+         <h2>Employee Management System</h2>
+         <div class="header-right">
+           <a href="{{ url_for('AddEmployee') }}">Add New Employee</a>
+           <a href="{{ url_for('RetrieveEmployee') }}">Retrieve Employee Details by ID </a>
+           <a href="{{ url_for('UpdateEmployee') }}">Update Employee Details by ID</a> 
+         </div>
+       </div>
+      
+      <hr/>  
+      {%- for message in get_flashed_messages() %}  
+         {{ message }}  
+      {%- endfor %}  
+          
+        
+      <table border="2" padding = "5">  
+         <thead>
+            <tr><th colspan="2">Employees List</th></tr> 
+            <tr> 
+               <th>ID</th> 
+               <th>Name</th>   
+            </tr>  
+         </thead>  
+  
+         <tbody>  
+            {% for employee in Employees %}  
+               <tr>
+                  <td>{{ employee.id }}</td>  
+                  <td>{{ employee.name }}</td>  
+               </tr>  
+            {% endfor %}  
+         </tbody>  
+      </table>  
+      <br><br>
+         <a class="button" href="{{ url_for('AddEmployee') }}">Add New Employee</a>
+         <br><br>
+         <a class="button" href="{{ url_for('RetrieveEmployee') }}">Retrieve Employee Details by ID </a>
+         <br> <br>
+         <a class="button" href="{{ url_for('UpdateEmployee') }}">Update Employee Details by ID</a> 
+         <br> <br>
+   </body>  
+</html>  
